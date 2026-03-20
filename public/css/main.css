@@ -328,7 +328,6 @@ main {
 }
 .search-container .search {
   width: 100%;
-  max-width: 500px;
   height: 50px;
   border-radius: 10px;
   background: transparent;
@@ -349,7 +348,6 @@ main {
 }
 .search-container .search {
   width: 100%;
-  max-width: 500px;
   height: 50px;
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
@@ -477,7 +475,16 @@ main {
   align-items: center;
 }
 
-#games-list,
+#games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-flow: dense;
+  gap: 20px;
+  margin: 40px auto 0;
+  max-width: 96%;
+  width: 100%;
+  padding-bottom: 50px;
+}
 #apps-list {
   display: flex;
   flex-wrap: wrap;
@@ -486,17 +493,12 @@ main {
   margin-top: 40px;
   max-width: 96%;
 }
-#games-list .game-item,
-#apps-list .app-item {
+#games-list .game-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* width: 250px;
-  height: 250px; */
-  width: 250px;
-  /* background-color: var(--bg-2-color);
-  border-radius: var(--border-radius); */
+  justify-content: flex-start;
+  width: 100%;
   text-align: center;
   color: var(--text-color);
   transition:
@@ -508,7 +510,48 @@ main {
   animation: slideInItem 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   animation-delay: var(--item-delay, 0s);
 }
-.game-item img,
+#games-list .game-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+#games-list .game-item p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+#games-list .game-item.featured p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#apps-list .app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  text-align: center;
+  color: var(--text-color);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideInItem 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: var(--item-delay, 0s);
+}
+#games-list .game-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  background: var(--bg-2-color);
+  transition:
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
 .app-item img {
   width: 200px;
   height: 200px;

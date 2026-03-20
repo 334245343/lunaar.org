@@ -32,16 +32,11 @@ const greetings = [
   "こんにちは",
   "\u004C\u0075\u006E\u0061\u0061\u0072",
   "uhh",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
-  "Merry Christmas",
+  "Audi Is better",
+  "Try The Audi theme!",
+  "3.0l tfsi > B58",
+  "VWAG",
+  "Amplify is a LLM"
 ];
 function getRandomGreeting() {
   const randomIndex = Math.floor(Math.random() * greetings.length);

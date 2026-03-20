@@ -76,6 +76,11 @@ function renderGames(games) {
   sortedGames.forEach((game, idx) => {
     const gameItem = document.createElement("div");
     gameItem.className = "game-item";
+
+    if (Math.random() < 0.1) {
+      gameItem.classList.add("featured");
+    }
+
     // Add staggered animation delay
     gameItem.style.setProperty("--item-delay", `${idx * 0.03}s`);
 
