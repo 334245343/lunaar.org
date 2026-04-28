@@ -6,7 +6,7 @@ RUN apk add --no-cache git && npm install -g pnpm
 WORKDIR /app
 
 # Copy package files
-COPY package.json pnpm-lock.yaml ./
+COPY package.json ./
 
 # Install dependencies (production only)
 RUN pnpm install --prod --no-frozen-lockfile
